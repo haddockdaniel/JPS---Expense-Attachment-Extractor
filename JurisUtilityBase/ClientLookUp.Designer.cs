@@ -59,6 +59,7 @@ namespace JurisUtilityBase
             this.buttonCreateClient.TabIndex = 63;
             this.buttonCreateClient.Text = "Next";
             this.buttonCreateClient.UseVisualStyleBackColor = false;
+            this.buttonCreateClient.Click += new System.EventHandler(this.buttonCreateClient_Click);
             // 
             // buttonExit
             // 
@@ -71,6 +72,7 @@ namespace JurisUtilityBase
             this.buttonExit.TabIndex = 64;
             this.buttonExit.Text = "Exit";
             this.buttonExit.UseVisualStyleBackColor = false;
+            this.buttonExit.Click += new System.EventHandler(this.buttonExit_Click);
             // 
             // dataGridView1
             // 
@@ -91,6 +93,7 @@ namespace JurisUtilityBase
             this.textBoxClient.Name = "textBoxClient";
             this.textBoxClient.Size = new System.Drawing.Size(310, 20);
             this.textBoxClient.TabIndex = 61;
+            this.textBoxClient.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // ClientLookUp
             // 

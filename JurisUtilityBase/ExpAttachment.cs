@@ -16,5 +16,7 @@ namespace JurisUtilityBase
         public string clicode { get; set; }
 
         public string matcode { get; set; }
+
+        public string errorMessage { get; set; }
     }
 }

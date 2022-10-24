@@ -56,8 +56,8 @@
             this.labelPath = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.radioButton4 = new System.Windows.Forms.RadioButton();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
+            this.radioButtonAllCiMatInv = new System.Windows.Forms.RadioButton();
+            this.radioButtonAllInv = new System.Windows.Forms.RadioButton();
             this.radioButtonAllMat = new System.Windows.Forms.RadioButton();
             this.radioButtonAllCli = new System.Windows.Forms.RadioButton();
             this.radioButtonOneFolder = new System.Windows.Forms.RadioButton();
@@ -214,6 +214,7 @@
             this.textBoxBillDateFrom.Name = "textBoxBillDateFrom";
             this.textBoxBillDateFrom.Size = new System.Drawing.Size(100, 20);
             this.textBoxBillDateFrom.TabIndex = 26;
+            this.textBoxBillDateFrom.Text = "01/01/1900";
             this.textBoxBillDateFrom.Visible = false;
             // 
             // textBoxBillNoTo
@@ -222,6 +223,7 @@
             this.textBoxBillNoTo.Name = "textBoxBillNoTo";
             this.textBoxBillNoTo.Size = new System.Drawing.Size(100, 20);
             this.textBoxBillNoTo.TabIndex = 25;
+            this.textBoxBillNoTo.Text = "99999999";
             this.textBoxBillNoTo.Visible = false;
             // 
             // labelBillNo
@@ -240,6 +242,7 @@
             this.textBoxBillNoFrom.Name = "textBoxBillNoFrom";
             this.textBoxBillNoFrom.Size = new System.Drawing.Size(100, 20);
             this.textBoxBillNoFrom.TabIndex = 23;
+            this.textBoxBillNoFrom.Text = "1";
             this.textBoxBillNoFrom.Visible = false;
             // 
             // radioButtonAll
@@ -337,8 +340,8 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.radioButton4);
-            this.groupBox3.Controls.Add(this.radioButton3);
+            this.groupBox3.Controls.Add(this.radioButtonAllCiMatInv);
+            this.groupBox3.Controls.Add(this.radioButtonAllInv);
             this.groupBox3.Controls.Add(this.radioButtonAllMat);
             this.groupBox3.Controls.Add(this.radioButtonAllCli);
             this.groupBox3.Controls.Add(this.radioButtonOneFolder);
@@ -350,27 +353,27 @@
             this.groupBox3.Text = "3) Folder Structure";
             this.groupBox3.Visible = false;
             // 
-            // radioButton4
+            // radioButtonAllCiMatInv
             // 
-            this.radioButton4.AutoSize = true;
-            this.radioButton4.Location = new System.Drawing.Point(306, 19);
-            this.radioButton4.Name = "radioButton4";
-            this.radioButton4.Size = new System.Drawing.Size(139, 17);
-            this.radioButton4.TabIndex = 4;
-            this.radioButton4.TabStop = true;
-            this.radioButton4.Text = "By Client-Matter/Invoice";
-            this.radioButton4.UseVisualStyleBackColor = true;
+            this.radioButtonAllCiMatInv.AutoSize = true;
+            this.radioButtonAllCiMatInv.Location = new System.Drawing.Point(306, 19);
+            this.radioButtonAllCiMatInv.Name = "radioButtonAllCiMatInv";
+            this.radioButtonAllCiMatInv.Size = new System.Drawing.Size(139, 17);
+            this.radioButtonAllCiMatInv.TabIndex = 4;
+            this.radioButtonAllCiMatInv.TabStop = true;
+            this.radioButtonAllCiMatInv.Text = "By Client-Matter/Invoice";
+            this.radioButtonAllCiMatInv.UseVisualStyleBackColor = true;
             // 
-            // radioButton3
+            // radioButtonAllInv
             // 
-            this.radioButton3.AutoSize = true;
-            this.radioButton3.Location = new System.Drawing.Point(146, 42);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(115, 17);
-            this.radioButton3.TabIndex = 3;
-            this.radioButton3.TabStop = true;
-            this.radioButton3.Text = "By Invoice Number";
-            this.radioButton3.UseVisualStyleBackColor = true;
+            this.radioButtonAllInv.AutoSize = true;
+            this.radioButtonAllInv.Location = new System.Drawing.Point(146, 42);
+            this.radioButtonAllInv.Name = "radioButtonAllInv";
+            this.radioButtonAllInv.Size = new System.Drawing.Size(115, 17);
+            this.radioButtonAllInv.TabIndex = 3;
+            this.radioButtonAllInv.TabStop = true;
+            this.radioButtonAllInv.Text = "By Invoice Number";
+            this.radioButtonAllInv.UseVisualStyleBackColor = true;
             // 
             // radioButtonAllMat
             // 
@@ -488,8 +491,8 @@
         private System.Windows.Forms.Label labelPath;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.RadioButton radioButton4;
-        private System.Windows.Forms.RadioButton radioButton3;
+        private System.Windows.Forms.RadioButton radioButtonAllCiMatInv;
+        private System.Windows.Forms.RadioButton radioButtonAllInv;
         private System.Windows.Forms.RadioButton radioButtonAllMat;
         private System.Windows.Forms.RadioButton radioButtonAllCli;
         private System.Windows.Forms.RadioButton radioButtonOneFolder;

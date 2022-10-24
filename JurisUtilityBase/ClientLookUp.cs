@@ -50,8 +50,8 @@ namespace JurisUtilityBase
             {
                 int index = e.RowIndex;
                 dataGridView1.Rows[index].Selected = true;
-                clisysnbr = Convert.ToInt32(dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[0].Value);
-                clicode = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[1].Value.ToString();
+                clisysnbr = Convert.ToInt32(dataGridView1.Rows[index].Cells[0].Value);
+                clicode = dataGridView1.Rows[index].Cells[1].Value.ToString();
                 clientSelected = true;
             }
         }
@@ -76,8 +76,10 @@ namespace JurisUtilityBase
             {
                 int index = e.RowIndex;
                 dataGridView1.Rows[index].Selected = true;
-                clisysnbr = Convert.ToInt32(dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[0].Value);
-                clicode = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[1].Value.ToString();
+                //clisysnbr = Convert.ToInt32(dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[0].Value);
+                //clicode = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[1].Value.ToString();
+                clisysnbr = Convert.ToInt32(dataGridView1.Rows[index].Cells[0].Value);
+                clicode = dataGridView1.Rows[index].Cells[1].Value.ToString();
                 clientSelected = true;
             }
         }
@@ -91,8 +93,8 @@ namespace JurisUtilityBase
             {
                 int index = e.RowIndex;
                 dataGridView1.Rows[index].Selected = true;
-                clisysnbr = Convert.ToInt32(dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[0].Value);
-                clicode = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[1].Value.ToString();
+                clisysnbr = Convert.ToInt32(dataGridView1.Rows[index].Cells[0].Value);
+                clicode = dataGridView1.Rows[index].Cells[1].Value.ToString();
                 clientSelected = true;
             }
         }

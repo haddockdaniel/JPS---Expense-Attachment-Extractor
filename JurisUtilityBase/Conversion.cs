@@ -19,19 +19,15 @@ namespace JurisUtilityBase
     public static class Conversion
     {
 
-        private static DataTable Table<T>(string name, IEnumerable<T> list, PropertyInfo[] pi)
+        public static DataSet ConvertToDataSet<T>(this IEnumerable<T> source, string name)
         {
-            DataTable table = new DataTable(name);
-            foreach (PropertyInfo p in pi)
-                table.Columns.Add(p.Name, p.PropertyType);
-            return table;
-        }
-
-        private static DataRow CreateRow<T>(DataRow row, T listItem, PropertyInfo[] pi)
-        {
-            foreach (PropertyInfo p in pi)
-                row[p.Name.ToString()] = p.GetValue(listItem, null);
-            return row;
+            if (source == null)
+                throw new ArgumentNullException("source ");
+            if (string.IsNullOrEmpty(name))
+                throw new ArgumentNullException("name");
+            var converted = new DataSet(name);
+            converted.Tables.Add(NewTable(name, source));
+            return converted;
         }
 
         private static DataTable NewTable<T>(string name, IEnumerable<T> list)
@@ -44,15 +40,19 @@ namespace JurisUtilityBase
             return table;
         }
 
-        public static DataSet ConvertToDataSet<T>(this IEnumerable<T> source, string name)
+        private static DataRow CreateRow<T>(DataRow row, T listItem, PropertyInfo[] pi)
         {
-            if (source == null)
-                throw new ArgumentNullException("source ");
-            if (string.IsNullOrEmpty(name))
-                throw new ArgumentNullException("name");
-            var converted = new DataSet(name);
-            converted.Tables.Add(NewTable(name, source));
-            return converted;
+            foreach (PropertyInfo p in pi)
+                row[p.Name.ToString()] = p.GetValue(listItem, null);
+            return row;
+        }
+
+        private static DataTable Table<T>(string name, IEnumerable<T> list, PropertyInfo[] pi)
+        {
+            DataTable table = new DataTable(name);
+            foreach (PropertyInfo p in pi)
+                table.Columns.Add(p.Name, p.PropertyType);
+            return table;
         }
 
 

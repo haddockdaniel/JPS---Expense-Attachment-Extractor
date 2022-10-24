@@ -76,6 +76,7 @@ namespace JurisUtilityBase
             this.buttonExit.TabIndex = 69;
             this.buttonExit.Text = "Exit";
             this.buttonExit.UseVisualStyleBackColor = false;
+            this.buttonExit.Click += new System.EventHandler(this.buttonExit_Click);
             // 
             // dataGridView1
             // 
@@ -89,6 +90,9 @@ namespace JurisUtilityBase
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(310, 217);
             this.dataGridView1.TabIndex = 67;
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
             // 
             // textBoxClient
             // 
@@ -96,6 +100,7 @@ namespace JurisUtilityBase
             this.textBoxClient.Name = "textBoxClient";
             this.textBoxClient.Size = new System.Drawing.Size(310, 20);
             this.textBoxClient.TabIndex = 66;
+            this.textBoxClient.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // button1
             // 

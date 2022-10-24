@@ -200,7 +200,7 @@ namespace JurisUtilityBase
             len = password.Length;
             for (x = 1; x <= temp.Length; x++)
             {
-                int ch = Strings.Asc(Strings.Mid(password, Convert.ToInt32((x % len) - len * Conversion.BoolToInt(((x % len) == 0))), 1));
+                int ch = Strings.Asc(Strings.Mid(password, Convert.ToInt32((x % len) - len * Gizmox.CSharp.Conversion.BoolToInt(((x % len) == 0))), 1));
                 Strings.MidStmtStr(ref temp, x, 1, Strings.Chr(Strings.Asc(Strings.Mid(temp, x, 1)) ^ ch).ToString(System.Globalization.CultureInfo.InvariantCulture));
             }
 

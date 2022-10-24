@@ -53,14 +53,18 @@ namespace JurisUtilityBase
             {
                 int index = e.RowIndex;
                 dataGridView1.Rows[index].Selected = true;
-                clisysnbr = Convert.ToInt32(dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[0].Value);
-                clicode = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[1].Value.ToString();
+                //clisysnbr = Convert.ToInt32(dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[0].Value);
+                //clicode = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[1].Value.ToString();
+                clisysnbr = Convert.ToInt32(dataGridView1.Rows[index].Cells[0].Value);
+                clicode = dataGridView1.Rows[index].Cells[1].Value.ToString();
                 clientSelected = true;
             }
         }
 
         private void buttonCreateClient_Click(object sender, EventArgs e)
         {
+            dataGridView2.DataSource = null;
+            dataGridView2.Rows.Clear();
             if (!clientSelected)
                 MessageBox.Show("Please select one client to proceed", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             else
@@ -88,8 +92,8 @@ namespace JurisUtilityBase
             {
                 int index = e.RowIndex;
                 dataGridView1.Rows[index].Selected = true;
-                clisysnbr = Convert.ToInt32(dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[0].Value);
-                clicode = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[1].Value.ToString();
+                clisysnbr = Convert.ToInt32(dataGridView1.Rows[index].Cells[0].Value);
+                clicode = dataGridView1.Rows[index].Cells[1].Value.ToString();
                 clientSelected = true;
             }
         }
@@ -103,8 +107,8 @@ namespace JurisUtilityBase
             {
                 int index = e.RowIndex;
                 dataGridView1.Rows[index].Selected = true;
-                clisysnbr = Convert.ToInt32(dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[0].Value);
-                clicode = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[1].Value.ToString();
+                clisysnbr = Convert.ToInt32(dataGridView1.Rows[index].Cells[0].Value);
+                clicode = dataGridView1.Rows[index].Cells[1].Value.ToString();
                 clientSelected = true;
             }
         }
@@ -128,8 +132,8 @@ namespace JurisUtilityBase
             {
                 int index = e.RowIndex;
                 dataGridView2.Rows[index].Selected = true;
-                matcode = dataGridView1.Rows[dataGridView2.CurrentRow.Index].Cells[1].Value.ToString();
-                matsysnbr = Convert.ToInt32(dataGridView2.Rows[dataGridView1.CurrentRow.Index].Cells[0].Value);
+                matcode = dataGridView1.Rows[index].Cells[1].Value.ToString();
+                matsysnbr = Convert.ToInt32(dataGridView2.Rows[index].Cells[0].Value);
                 matterSelected = true;
             }
         }
@@ -143,8 +147,10 @@ namespace JurisUtilityBase
             {
                 int index = e.RowIndex;
                 dataGridView2.Rows[index].Selected = true;
-                matcode = dataGridView1.Rows[dataGridView2.CurrentRow.Index].Cells[1].Value.ToString();
-                matsysnbr = Convert.ToInt32(dataGridView2.Rows[dataGridView1.CurrentRow.Index].Cells[0].Value);
+                matcode = dataGridView1.Rows[index].Cells[1].Value.ToString();
+                matsysnbr = Convert.ToInt32(dataGridView2.Rows[index].Cells[0].Value);
+                //matcode = dataGridView1.Rows[dataGridView2.CurrentRow.Index].Cells[1].Value.ToString();
+                // matsysnbr = Convert.ToInt32(dataGridView2.Rows[dataGridView1.CurrentRow.Index].Cells[0].Value);
                 matterSelected = true;
             }
         }
@@ -158,8 +164,10 @@ namespace JurisUtilityBase
             {
                 int index = e.RowIndex;
                 dataGridView2.Rows[index].Selected = true;
-                matcode = dataGridView1.Rows[dataGridView2.CurrentRow.Index].Cells[1].Value.ToString();
-                matsysnbr = Convert.ToInt32(dataGridView2.Rows[dataGridView1.CurrentRow.Index].Cells[0].Value);
+                matcode = dataGridView1.Rows[index].Cells[1].Value.ToString();
+                matsysnbr = Convert.ToInt32(dataGridView2.Rows[index].Cells[0].Value);
+                //matcode = dataGridView1.Rows[dataGridView2.CurrentRow.Index].Cells[1].Value.ToString();
+                //matsysnbr = Convert.ToInt32(dataGridView2.Rows[dataGridView1.CurrentRow.Index].Cells[0].Value);
                 matterSelected = true;
             }
         }

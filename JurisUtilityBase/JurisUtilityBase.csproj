@@ -180,12 +180,6 @@
     <Compile Include="MatLookUp.Designer.cs">
       <DependentUpon>MatLookUp.cs</DependentUpon>
     </Compile>
-    <Compile Include="PrinterDialog.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="PrinterDialog.Designer.cs">
-      <DependentUpon>PrinterDialog.cs</DependentUpon>
-    </Compile>
     <Compile Include="ReportDisplay.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -211,9 +205,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MatLookUp.resx">
       <DependentUpon>MatLookUp.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="PrinterDialog.resx">
-      <DependentUpon>PrinterDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ReportDisplay.resx">
       <DependentUpon>ReportDisplay.cs</DependentUpon>

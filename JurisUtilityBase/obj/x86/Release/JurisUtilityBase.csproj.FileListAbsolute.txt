@@ -89,3 +89,37 @@ D:\JPS - Template\JurisUtilityBase\obj\x86\Release\Waltrip Data Fix.exe.manifest
 D:\JPS - Template\JurisUtilityBase\obj\x86\Release\Waltrip Data Fix.application
 D:\JPS - Template\JurisUtilityBase\obj\x86\Release\Waltrip Data Fix.exe
 D:\JPS - Template\JurisUtilityBase\obj\x86\Release\Waltrip Data Fix.pdb
+D:\Projects\JPS - Expense Attachment Extractor\JurisUtilityBase\obj\x86\Release\JurisUtilityBase.csproj.AssemblyReference.cache
+D:\Projects\JPS - Expense Attachment Extractor\JurisUtilityBase\obj\x86\Release\JurisUtilityBase.csproj.ResolveComReference.cache
+D:\Projects\JPS - Expense Attachment Extractor\JurisUtilityBase\obj\x86\Release\JurisUtilityBase.ClientLookUp.resources
+D:\Projects\JPS - Expense Attachment Extractor\JurisUtilityBase\obj\x86\Release\JurisUtilityBase.MatLookUp.resources
+D:\Projects\JPS - Expense Attachment Extractor\JurisUtilityBase\obj\x86\Release\JurisUtilityBase.ReportDisplay.resources
+D:\Projects\JPS - Expense Attachment Extractor\JurisUtilityBase\obj\x86\Release\JurisUtilityBase.UtilityBaseMain.resources
+D:\Projects\JPS - Expense Attachment Extractor\JurisUtilityBase\obj\x86\Release\JurisUtilityBase.Properties.Resources.resources
+D:\Projects\JPS - Expense Attachment Extractor\JurisUtilityBase\obj\x86\Release\JurisUtilityBase.SplashScreen.resources
+D:\Projects\JPS - Expense Attachment Extractor\JurisUtilityBase\obj\x86\Release\JurisUtilityBase.csproj.GenerateResource.cache
+D:\Projects\JPS - Expense Attachment Extractor\JurisUtilityBase\obj\x86\Release\JurisUtilityBase.csproj.CoreCompileInputs.cache
+D:\Projects\JPS - Expense Attachment Extractor\JurisUtilityBase\bin\x86\Release\JPS - Expense Attachment Extractor.exe.config
+D:\Projects\JPS - Expense Attachment Extractor\JurisUtilityBase\bin\x86\Release\JPS - Expense Attachment Extractor.exe.manifest
+D:\Projects\JPS - Expense Attachment Extractor\JurisUtilityBase\bin\x86\Release\JPS - Expense Attachment Extractor.application
+D:\Projects\JPS - Expense Attachment Extractor\JurisUtilityBase\bin\x86\Release\JPS - Expense Attachment Extractor.exe
+D:\Projects\JPS - Expense Attachment Extractor\JurisUtilityBase\bin\x86\Release\JPS - Expense Attachment Extractor.pdb
+D:\Projects\JPS - Expense Attachment Extractor\JurisUtilityBase\bin\x86\Release\C1.C1Report.4.dll
+D:\Projects\JPS - Expense Attachment Extractor\JurisUtilityBase\bin\x86\Release\C1.Win.C1Input.4.dll
+D:\Projects\JPS - Expense Attachment Extractor\JurisUtilityBase\bin\x86\Release\C1.Win.C1Report.4.dll
+D:\Projects\JPS - Expense Attachment Extractor\JurisUtilityBase\bin\x86\Release\Costura.dll
+D:\Projects\JPS - Expense Attachment Extractor\JurisUtilityBase\bin\x86\Release\Gizmox.Extensions.dll
+D:\Projects\JPS - Expense Attachment Extractor\JurisUtilityBase\bin\x86\Release\Ionic.Zlib.dll
+D:\Projects\JPS - Expense Attachment Extractor\JurisUtilityBase\bin\x86\Release\JurisAuthenticator.dll
+D:\Projects\JPS - Expense Attachment Extractor\JurisUtilityBase\bin\x86\Release\JurisDBO21.dll
+D:\Projects\JPS - Expense Attachment Extractor\JurisUtilityBase\bin\x86\Release\JurisIDef21.dll
+D:\Projects\JPS - Expense Attachment Extractor\JurisUtilityBase\bin\x86\Release\JurisStr21.dll
+D:\Projects\JPS - Expense Attachment Extractor\JurisUtilityBase\bin\x86\Release\JurisStr221.dll
+D:\Projects\JPS - Expense Attachment Extractor\JurisUtilityBase\bin\x86\Release\JurisSVR21.dll
+D:\Projects\JPS - Expense Attachment Extractor\JurisUtilityBase\bin\x86\Release\Costura.xml
+D:\Projects\JPS - Expense Attachment Extractor\JurisUtilityBase\obj\x86\Release\JurisUtilityBase.csproj.Fody.CopyLocal.cache
+D:\Projects\JPS - Expense Attachment Extractor\JurisUtilityBase\obj\x86\Release\JPS - Expense Attachment Extractor.exe.manifest
+D:\Projects\JPS - Expense Attachment Extractor\JurisUtilityBase\obj\x86\Release\JPS - Expense Attachment Extractor.application
+D:\Projects\JPS - Expense Attachment Extractor\JurisUtilityBase\obj\x86\Release\JurisUtilityBase.csproj.CopyComplete
+D:\Projects\JPS - Expense Attachment Extractor\JurisUtilityBase\obj\x86\Release\JPS - Expense Attachment Extractor.exe
+D:\Projects\JPS - Expense Attachment Extractor\JurisUtilityBase\obj\x86\Release\JPS - Expense Attachment Extractor.pdb

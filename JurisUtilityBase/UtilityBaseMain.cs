@@ -36,8 +36,6 @@ namespace JurisUtilityBase
 
         private int matsysnbr = 0;
 
-        private System.Drawing.Point pt;
-
         private string clicode = "";
 
         private string matcode = "";
@@ -57,6 +55,7 @@ namespace JurisUtilityBase
         {
             InitializeComponent();
             _jurisUtility = new JurisUtility();
+            textBoxBillDateTo.Text = DateTime.Now.ToString("MM/dd/yyyy");
         }
 
         #endregion
@@ -112,33 +111,151 @@ namespace JurisUtilityBase
 
         private void DoDaFix()
         {
-            string message = "This will print all attachment expenses into the folder " + path + ". Any files with duplicate names will be incremented by 1 so printing can complete. Continue?";
-            DialogResult dr = MessageBox.Show(message, "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (dr == DialogResult.Yes)
+            if (verifySelections())
             {
-                List<string> errors = printAttachments().ToList();
-                if (errors.Count == 0)
-                    MessageBox.Show("The process completed without error", "Success", MessageBoxButtons.OK, MessageBoxIcon.None);
-                else
+                string message = "This will print all attachment expenses into the folder " + path + ". Any files with duplicate names will be incremented by 1 so printing can complete. Continue?";
+                DialogResult dr = MessageBox.Show(message, "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (dr == DialogResult.Yes)
                 {
-                    DialogResult dr1 = MessageBox.Show("The process completed but encountered some issues. Would you like to view the error log?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                    if (dr1 == DialogResult.Yes)
+                    List<ExpAttachment> errors = printAttachments().ToList();
+                    int ct = errors.Count();
+                    if (ct == 0)
+                        MessageBox.Show("The process completed without error", "Success", MessageBoxButtons.OK, MessageBoxIcon.None);
+                    else
                     {
-                        DataSet ds = errors.ConvertToDataSet("TestTable");
-                        ReportDisplay rd = new ReportDisplay(ds);
-                        
+                        DialogResult dr1 = MessageBox.Show("The process completed but encountered some issues. Would you like to view the error log?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        if (dr1 == DialogResult.Yes)
+                        {
+                            DataSet ds = errors.ConvertToDataSet("TestTable");
+                            ReportDisplay rd = new ReportDisplay(ds);
 
+
+
+                        }
+
+                        //where clause based on selections
+                        //dymanic pathing
+                        //pop up message with specifics about selections (convirmation message)
 
                     }
 
 
+                }
+                System.Environment.Exit(0);
+            }
+        }
+
+        private bool verifySelections()
+        {
+            if (!string.IsNullOrEmpty(path))
+            {
+                if (!checkBoxAdv.Checked) //use defaults so no need to verify other than if path is selected
+                {
+                    return true;
+                }
+                else
+                {
+                    switch (option)
+                    {
+                        case 1: //by invoice num
+                            if (IsNumeric(textBoxBillNoFrom.Text) && IsNumeric(textBoxBillNoTo.Text))
+                            {
+                                if (Convert.ToInt32(textBoxBillNoFrom.Text) < Convert.ToInt32(textBoxBillNoTo.Text))
+                                {
+                                    if (Convert.ToInt32(textBoxBillNoFrom.Text) > 0 && Convert.ToInt32(textBoxBillNoTo.Text) > 0)
+                                    {
+                                        return true;
+                                    }
+
+                                    else
+                                    {
+                                        MessageBox.Show("All Bill Numbers must be greater than 0.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                                        return false;
+
+                                    }
+                                }
+                                else
+                                {
+                                    MessageBox.Show("The From Bill Number appears to be larger than the To Bill Number.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                                    return false;
+
+                                }
+                            }
+                            else
+                            {
+                                MessageBox.Show("The bill numbers must be positive integers", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                                return false;
+                            }
+                            break;
+                        case 2: //by inv date
+                            if (IsDate(textBoxBillDateFrom.Text) && IsDate(textBoxBillDateTo.Text))
+                            {
+                                if (Convert.ToDateTime(textBoxBillDateFrom.Text) < Convert.ToDateTime(textBoxBillDateTo.Text))
+                                    return true;
+                                else
+                                {
+                                    MessageBox.Show("The From date appears to be newer than the To date.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                                    return false;
+
+                                }
+                            }
+                            else
+                            {
+                                MessageBox.Show("The date for Bill Date are not in the correct format. Please use MM/DD/YYYY format.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                                return false;
+                            }
+                            break;
+                        case 3: //by matter
+                            if (matsysnbr > 0 && clisysnbr > 0)
+                                return true;
+                            else
+                            {
+                                MessageBox.Show("A proper Client/Matter must be selected before moving forward", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                                return false;
+
+                            }
+                            break;
+                        case 4: //by client
+                            if (clisysnbr > 0)
+                                return true;
+                            else
+                            {
+                                MessageBox.Show("A proper Client must be selected before moving forward", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                                return false;
+
+                            }
+                            break;
+                        case 5: //all
+                            return true;
+                            break;
+                        default:
+                            return true;
+
+                            break;
+                    }
 
                 }
-
-
             }
-            System.Environment.Exit(0);
+            else
+            {
+                MessageBox.Show("A path must be chosen in Step 1 before proceeding", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                return false;
+            }
+
+
+
+
+
+
+
+
+
+
+
+
+
         }
+
         private bool VerifyFirmName()
         {
             //    Dim SQL     As String
@@ -181,12 +298,16 @@ namespace JurisUtilityBase
             }
         }
 
-        private static bool IsNumeric(object Expression)
+        private static bool IsNumeric(string test)
         {
-            double retNum;
-
-            bool isNum = Double.TryParse(Convert.ToString(Expression), System.Globalization.NumberStyles.Any, System.Globalization.NumberFormatInfo.InvariantInfo, out retNum);
-            return isNum; 
+            int retNum;
+            try
+            {
+                Convert.ToInt32(test);
+                return true;
+            }
+            catch (Exception cc)
+            { return false; }
         }
 
         private void WriteLog(string comment)
@@ -275,14 +396,14 @@ namespace JurisUtilityBase
         }
 
 
-        private List<string> printAttachments()
+        private List<ExpAttachment> printAttachments()
         {
-            List<string> errors = new List<string>();
+            List<ExpAttachment> errors = new List<ExpAttachment>();
             List<ExpAttachment> exps = new List<ExpAttachment>();
             string file = "";
             try
             {
-                string sql2 = "  select name, attachmentobject, bebillnbr, dbo.jfn_FormatCientCode(clicode) as clicode, dbo.jfn_FormatMatterCode(matcode) as matcode from Attachment aa " +
+                string sql2 = "  select name, attachmentobject, bebillnbr, dbo.jfn_FormatClientCode(clicode) as clicode, dbo.jfn_FormatMatterCode(matcode) as matcode from Attachment aa " +
                   "  inner join ExpenseEntryAttachment ea on ea.AttachmentID = aa.id " +
                   "  inner join expenseEntry ee on ee.entryid = ea.EntryID " +
                   "  INNER JOIN  ExpenseEntryLink el ON ee.EntryID = el.EntryID " +
@@ -292,22 +413,28 @@ namespace JurisUtilityBase
                   "  where AttachmentType = 0";
                 DataSet fs = _jurisUtility.RecordsetFromSQL(sql2);
 
-
-                foreach (DataRow dr in fs.Tables[0].Rows)
+                if (fs == null || fs.Tables == null || fs.Tables.Count == 0 || fs.Tables[0].Rows.Count == 0)
+                    MessageBox.Show("This database either has no expense attachments or none that meet that criteria.", "No Attachments Found", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                else
                 {
+                    foreach (DataRow dr in fs.Tables[0].Rows)
+                    {
 
-                    ExpAttachment expattach = new ExpAttachment();
-                    expattach.fileName = dr["name"].ToString();
-                    expattach.fileData = (byte[])dr["attachmentobject"];
-                    expattach.billNo = Convert.ToInt32(dr["bebillnbr"].ToString());
-                    expattach.clicode = dr["clicode"].ToString();
-                    expattach.matcode = dr["matcode"].ToString();
-                    exps.Add(expattach);
+                        ExpAttachment expattach = new ExpAttachment();
+                        expattach.fileName = dr["name"].ToString();
+                        expattach.fileData = (byte[])dr["attachmentobject"];
+                        expattach.billNo = Convert.ToInt32(dr["bebillnbr"].ToString());
+                        expattach.clicode = dr["clicode"].ToString();
+                        expattach.matcode = dr["matcode"].ToString();
+                        expattach.errorMessage = "";
+                        exps.Add(expattach);
+                    }
                 }
             }
             catch (Exception juris)
             {
-                errors.Add("There was an error connecting to the Juris database. Details: " + juris.Message);
+                MessageBox.Show("There was an error connecting to the Juris database. Details: " + juris.Message + ". This must be fixed before the tool can proceed. The tool will now close.", "Connection Error", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                this.Close();
             }
             //need to find an easy way for dynamic pathing
             if (!checkBoxAdv.Checked) //use defaults
@@ -334,9 +461,18 @@ namespace JurisUtilityBase
                     }
                     catch (Exception attach)
                     {
-                        errors.Add("Client: " + ee.clicode + ", Matter: " + ee.matcode + ", Invoice: " + ee.billNo.ToString() + ", File: " + ee.fileName + " cannot be printed because: " + attach.Message);
+                        ee.errorMessage = attach.Message;
+                        errors.Add(ee);
                     }
                 }
+
+            }
+            else
+            {
+
+
+
+
 
             }
 
@@ -385,9 +521,8 @@ namespace JurisUtilityBase
             if (radioButtonMat.Checked)
             {
                 option = 3;
-                this.Location = pt;
                 this.Hide();
-                MatLookUp cl = new MatLookUp(_jurisUtility, pt);
+                MatLookUp cl = new MatLookUp(_jurisUtility, this.Location);
                 cl.ShowDialog();
                 if (cl.clientSelected && cl.matterSelected)
                 {
@@ -416,9 +551,8 @@ namespace JurisUtilityBase
             if (radioButtonCli.Checked)
             {
                 option = 4;
-                this.Location = pt;
                 this.Hide();
-                ClientLookUp cl = new ClientLookUp(_jurisUtility, pt);
+                ClientLookUp cl = new ClientLookUp(_jurisUtility, this.Location);
                 cl.ShowDialog();
                 if (cl.clientSelected)
                 {
